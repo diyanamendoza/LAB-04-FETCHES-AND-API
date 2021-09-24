@@ -20,8 +20,6 @@ export default class SearchPage extends Component {
         try { 
             this.setState({ isLoading: true })
             const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchCategory}=${this.state.query}&sort=${this.state.sortCategory}&direction=${this.state.sortOrder}`);
-            // const body = await response.body;
-            // console.log(body);
             this.setState({
                 pokeData: response.body.results,
                 isLoading: false,
