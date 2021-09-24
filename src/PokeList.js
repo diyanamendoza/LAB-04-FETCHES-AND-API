@@ -11,16 +11,16 @@ export default class PokeList extends Component {
         return (
             <div className="poke-container">
                 {
-                    this.props.loadStatus ? 
+                //if isLoading is true
+                this.props.loadStatus ? 
+                //show loader
                 <Loader type="Circles" color="white" height={100} width={100}/>  
+                //but if isLoading is false, check this condition
                 :
-                (array.map(entry => {
-                    return <PokeItem 
-                    key={entry.id}
-                    {...entry}
-                    />
-                })) 
-                // || (<h3>Boo. No results to show.</h3>)                
+                //if array is empty, show h3
+                (array.length === 0) ? (<h2>No results to show :(</h2>)
+                //else map it
+                : (array.map(entry => { return <PokeItem key={entry.id} {...entry}/> })) 
                 }
             </div>
         )
