@@ -14,12 +14,13 @@ export default class PokeList extends Component {
                     this.props.loadStatus ? 
                 <Loader type="Circles" color="white" height={100} width={100}/>  
                 :
-                array.map(entry => {
+                (array.map(entry => {
                     return <PokeItem 
                     key={entry.id}
                     {...entry}
                     />
-                })                
+                })) 
+                // || (<h3>Boo. No results to show.</h3>)                
                 }
             </div>
         )

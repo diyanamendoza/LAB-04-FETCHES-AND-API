@@ -10,7 +10,8 @@ export default class SearchPage extends Component {
         pokeData: [],
         query: '',
         sortOrder: 'asc',
-        category: 'pokemon',
+        sortCategory: 'pokemon',
+        searchCategory: 'pokemon',
         isLoading: false,
     }
 
@@ -18,7 +19,7 @@ export default class SearchPage extends Component {
     fetchSearch = async () => {
         try { 
             this.setState({ isLoading: true })
-            const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&sort=${this.state.category}&direction=${this.state.sortOrder}`);
+            const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchCategory}=${this.state.query}&sort=${this.state.sortCategory}&direction=${this.state.sortOrder}`);
             // const body = await response.body;
             // console.log(body);
             this.setState({
@@ -43,13 +44,16 @@ export default class SearchPage extends Component {
 
     handleChange = (e) => {
         this.setState({
-            query: e.target.value});
+            query: (e.target.value).toLowerCase()});
     }
 
     handleReset = async () => {
+        await document.getElementById("searchform").reset();
         await this.setState({
             query: '',
-            category: 'pokemon'});
+            sortOrder: 'asc',
+            searchCategory: 'pokemon',
+            sortCategory: 'pokemon'});
         await this.fetchSearch();
         }
 
@@ -62,7 +66,14 @@ export default class SearchPage extends Component {
 
     handleCatSort = async (e) => {
         await this.setState({
-            category: e.target.value
+            sortCategory: e.target.value
+        });
+        await this.fetchSearch();
+    }
+
+    handleCatSearch = async (e) => {
+        await this.setState({
+            searchCategory: e.target.value
         });
         await this.fetchSearch();
     }
@@ -76,6 +87,7 @@ export default class SearchPage extends Component {
                     submit={this.handleSubmit}
                     input={this.handleChange}
                     reset={this.handleReset}
+                    categorySearch={this.handleCatSearch}
                 />
                 <Sort 
                     sort={this.handleSort}

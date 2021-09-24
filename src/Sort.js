@@ -4,7 +4,7 @@ export default class Sort extends Component {
     render() {
         return (
             <div className='dropdowns'>
-                <p>Sort By</p>
+                <p>Sort Results By</p>
                 {
                 <select onChange={this.props.categorySort}>
                     <option value='pokemon'>Name</option>
