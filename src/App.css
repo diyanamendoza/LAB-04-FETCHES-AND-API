@@ -57,10 +57,7 @@ button {
   border: 1px solid white;
   background-color: white;
   border-radius: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding:10px;
   font-size: 1.2em;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-transform:uppercase;
@@ -68,7 +65,7 @@ button {
 }
 
 button:hover, button:active {
-  background-color: black;
+  background-color: orange;
   color: white;
 }
 
