@@ -37,7 +37,7 @@ html {
   border: 1px solid gray;
   border-radius: 30px;
   background-color: black;
-  color: orange;
+  color: goldenrod;
   padding: 20px;
   text-align: center;
 }
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover, button:active {
-  background-color: orange;
+  background-color: goldenrod;
   color: white;
 }
 
