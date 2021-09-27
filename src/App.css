@@ -93,7 +93,7 @@ form, .form-container, .dropdowns {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -145,7 +145,8 @@ header > a {
   width: 300px;
   border: solid 10px goldenrod;
   border-radius: 30px;
-  background-image: url('http://localhost:3000/galaxy-background.png');
+  /* background-image: url('http://localhost:3000/galaxy-background.png'); */
+  background-image: url('/galaxy-background.png');
   background-repeat: no-repeat;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   overflow: hidden;

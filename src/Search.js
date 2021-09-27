@@ -16,8 +16,9 @@ export default class Search extends Component {
                         </select>
                         }
                     <button>Search</button>
+                    <button onClick={this.props.reset}>Reset</button>
                 </form>
-                <button onClick={this.props.reset}>Reset</button>
+                
                 
             </div>
         )
