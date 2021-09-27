@@ -3,6 +3,7 @@ import PokeList from './PokeList.js'
 import Search from './Search.js'
 import request from 'superagent'
 import Sort from './Sort.js'
+import PrevNext from './PrevNext.js'
 
 export default class SearchPage extends Component {
 //state things
@@ -13,13 +14,14 @@ export default class SearchPage extends Component {
         sortCategory: 'pokemon',
         searchCategory: 'pokemon',
         isLoading: false,
+        currentPage: 1
     }
 
 //fetch the poke data function
     fetchSearch = async () => {
         try { 
             this.setState({ isLoading: true })
-            const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchCategory}=${this.state.query}&sort=${this.state.sortCategory}&direction=${this.state.sortOrder}`);
+            const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchCategory}=${this.state.query}&sort=${this.state.sortCategory}&direction=${this.state.sortOrder}&page=${this.state.currentPage}&perPage=20`);
             this.setState({
                 pokeData: response.body.results,
                 isLoading: false,
@@ -51,7 +53,9 @@ export default class SearchPage extends Component {
             query: '',
             sortOrder: 'asc',
             searchCategory: 'pokemon',
-            sortCategory: 'pokemon'});
+            sortCategory: 'pokemon',
+            currentPage: 1
+        });
         await this.fetchSearch();
         }
 
@@ -76,6 +80,16 @@ export default class SearchPage extends Component {
         await this.fetchSearch();
     }
 
+    handlePrev = async () => {
+        await this.setState({ currentPage: this.state.currentPage - 1 })
+        await this.fetchSearch();
+    }
+
+    handleNext = async () => {
+        await this.setState({ currentPage: this.state.currentPage + 1 })
+        await this.fetchSearch();
+    }
+
 //render
     render() {
         return (
@@ -91,10 +105,17 @@ export default class SearchPage extends Component {
                     sort={this.handleSort}
                     categorySort={this.handleCatSort}
                 />
+                <PrevNext
+                    prev={this.handlePrev}
+                    next={this.handleNext}
+                    currentPage={this.state.currentPage}
+                    data={this.state.pokeData}
+                />
                 <PokeList 
                     data={this.state.pokeData}
                     loadStatus={this.state.isLoading}
                 />
+
 
             </div>
         )
