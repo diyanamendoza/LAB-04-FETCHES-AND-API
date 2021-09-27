@@ -6,8 +6,9 @@ export default class PrevNext extends Component {
             <div className="pagination">
                 { this.props.currentPage !== 1 && <button onClick={this.props.prev}>Prev</button>}
                 <span id="page">Page: {this.props.currentPage}</span>
-                { this.props.currentPage === 41 || <button onClick={this.props.next}>Next</button>}
-                {/* { array.length > 20 || <button onClick={this.props.next}>Next</button>} */}
+                { (this.props.currentPage !== 41 && this.props.data.length >= 20) ?
+                <button onClick={this.props.next}>Next</button> 
+                : <span></span> }
             </div>
         )
     }

@@ -44,7 +44,9 @@ export default class SearchPage extends Component {
 
     handleChange = (e) => {
         this.setState({
-            query: (e.target.value).toLowerCase()});
+            query: (e.target.value).toLowerCase(),
+            currentPage: 1
+        });
     }
 
     handleReset = async () => {
@@ -115,8 +117,6 @@ export default class SearchPage extends Component {
                     data={this.state.pokeData}
                     loadStatus={this.state.isLoading}
                 />
-
-
             </div>
         )
     }
