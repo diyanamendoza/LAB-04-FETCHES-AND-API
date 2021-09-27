@@ -14,7 +14,7 @@ export default class PokeList extends Component {
                 //if isLoading is true
                 this.props.loadStatus ? 
                 //show loader
-                <Loader type="Circles" color="white" height={100} width={100}/>  
+                <Loader type="Circles" color="goldenrod" height={100} width={100}/>  
                 //but if isLoading is false, check this condition
                 :
                 //if array is empty, show h3

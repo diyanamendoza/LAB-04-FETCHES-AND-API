@@ -1,12 +1,12 @@
 html {
   margin:0;
   padding:0;
-  background-color: lightgrey;
+  /* background-color: darkgray; */
 
 }
 
 .App {
-  background-color: lightgrey;
+  /* background-color: darkgray; */
   margin: 0;
   padding:0;
 
@@ -42,6 +42,11 @@ html {
   text-align: center;
 }
 
+.one-poke > a {
+  color: goldenrod;
+  text-decoration: none;
+}
+
 .enter-container > a {
   display: flex;
   flex-direction: column;
@@ -54,7 +59,7 @@ img {
 }
 
 button {
-  border: 1px solid white;
+  border: 1px solid goldenrod;
   background-color: white;
   border-radius: 30px;
   padding:10px;
@@ -75,7 +80,7 @@ h3 {
 
 input {
   margin-right: 10px;
-  border: none;
+  border: 1px solid goldenrod;
   height: 30px;
   width: 250px;
   font-size: 1.2em;
@@ -97,4 +102,82 @@ select {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-transform:uppercase;
   height: 30px;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+header {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  text-transform:uppercase;
+
+}
+
+header > a {
+  color: goldenrod;
+}
+
+.active-nav {
+  font-weight: bolder;
+  color: black;
+}
+
+.detail-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.poke-card {
+  width: 300px;
+  border: solid 10px goldenrod;
+  border-radius: 30px;
+  background-image: url('http://localhost:3000/galaxy-background.png');
+  background-repeat: no-repeat;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  overflow: hidden;
+}
+
+.poke-card > img {
+  width: 300px;
+}
+
+.poke-card > h3 {
+  background-color: goldenrod;
+  padding: 10px;
+  text-transform:uppercase;
+}
+
+.poke-card-stats {
+  border-top: goldenrod 5px solid;
+  background-color: white; opacity: 0.5;
+  padding: 30px;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poke-card-stats > h4 {
+  padding: 0px;
+  margin: 5px;
+}
+
+.poke-card-stats > a {
+  color: black;
+  font-weight: bolder;
+  margin-top: 10px;
 }
